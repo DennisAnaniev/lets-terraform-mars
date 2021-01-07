@@ -3,10 +3,10 @@ provider "aws" {
 }
 resource "aws_instance" "my_ubuntu" {
   ami           = "ami-0489277f0e9a94f8d44"
-  instance_type = "t3.micro"
+  instance_type = "t3.medium"
   count = 3
   tags = {
     "Name"   = "Web_server"
-    "Author" = "Dennis Ananev"
+    "Author" = "Denis Ananev"
   }
 }
