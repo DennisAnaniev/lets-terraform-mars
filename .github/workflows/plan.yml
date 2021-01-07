@@ -1,2 +1,0 @@
-- name: terraform-plan
-  uses: dflook/terraform-plan@v1.4.1
