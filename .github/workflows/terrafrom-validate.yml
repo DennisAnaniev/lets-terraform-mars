@@ -11,6 +11,12 @@ jobs:
       - uses: hashicorp/setup-terraform@v1.3.2
         with:
           terraform_version: 0.14.4
+        
+      - name: Terraform init
+        id: init
+        run: terraform init
+        
+        working-directory: ./AWS
       - name: Validate Terraform code
         id: validate
         run: terraform validate -no-color
