@@ -15,6 +15,7 @@ jobs:
       - name: Terraform init
         id: init
         run: terraform init
+        working-directory: ./AWS 
 
       - name: Validate Terraform code
         id: validate
