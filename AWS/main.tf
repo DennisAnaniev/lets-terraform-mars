@@ -1,5 +1,5 @@
 provider "aws" {
-    region = "eu-central-2"
+    region = "eu-central-1"
 }
 resource "aws_instance" "my_ubuntu" {
   ami           = "ami-090f10efc254eaf55"
