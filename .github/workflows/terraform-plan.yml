@@ -17,9 +17,9 @@ jobs:
       - name: Terraform init
         id: init
         run: terraform init
-        working-directory: ./AWS
+        working-directory: AWS
 
       - name: Terraform plan
         id: plan
         run: terraform plan -no-color
-        working-directory: ./AWS
+        working-directory: AWS
