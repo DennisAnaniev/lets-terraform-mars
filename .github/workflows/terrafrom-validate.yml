@@ -1,6 +1,6 @@
 # This is terrafrom validate workflow for checking terraform syntax
 name: terraform-validate
-on: 
+on:
   pull_request:
     branches: [master]
 jobs:
@@ -11,15 +11,17 @@ jobs:
       - uses: hashicorp/setup-terraform@v1.3.2
         with:
           terraform_version: 0.14.4
-        
       - name: Terraform init
         id: init
         run: terraform init
-        working-directory: ./AWS 
+        working-directory: ./AWS
 
       - name: Validate Terraform code
         id: validate
         run: terraform validate -no-color
+        working-directory: ./AWS
+
+
         working-directory: ./AWS 
        
         
