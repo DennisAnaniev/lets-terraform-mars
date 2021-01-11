@@ -24,6 +24,7 @@ jobs:
       - name: Terraform plan
         id: plan
         run: terraform plan -no-color
+        working-directory: ./AWS
 
         
       
