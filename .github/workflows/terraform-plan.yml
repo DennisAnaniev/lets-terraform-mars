@@ -7,10 +7,6 @@ jobs:
   plan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: hashicorp/setup-terraform@v1.3.2
-        with:
-          terraform_version: 0.14.4
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
