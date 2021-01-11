@@ -4,39 +4,24 @@ on:
   pull_request:
     branches: [master]
 jobs:
-  validate:
+  plan:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: hashicorp/setup-terraform@v1.3.2
-        with:
-          terraform_version: 0.14.4
-          
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: eu-central-1
-      
-      - name: terraform fmt
-        uses: dflook/terraform-fmt@v1
-        with:
-          path: ./AWS
-        
-      - name: Terraform init
-        id: init
-        run: terraform init
-        working-directory: ./AWS
+      name: Create terraform plan
+    env:
+      GITHUB_TOKEN: ${{ secrets.TERRAFORM }}            
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: Validate Terraform code
-        id: validate
-        run: terraform validate -no-color
-        working-directory: ./AWS
-      
-      - name: Terraform plan
-        id: plan
-        run: terraform plan -no-color
+      - name: terraform plan
+        uses: dflook/terraform-plan@v1
+        with:
         working-directory: ./AWS
 
         
