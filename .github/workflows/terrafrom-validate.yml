@@ -21,9 +21,6 @@ jobs:
         run: terraform validate -no-color
         working-directory: ./AWS
 
-
-        working-directory: ./AWS 
-       
         
       
         
